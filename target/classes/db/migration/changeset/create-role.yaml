@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-roles
+      author: Ivan
+      changes:
+        - sql:
+            splitStatements: false
+            sql: CREATE TYPE users_roles AS ENUM ('USER', 'ADMIN');

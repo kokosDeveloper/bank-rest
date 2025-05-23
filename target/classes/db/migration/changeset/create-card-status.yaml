@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-card-status
+      author: Ivan
+      changes:
+        - sql:
+            splitStatements: false
+            sql: CREATE TYPE card_status AS ENUM ('ACTIVE', BLOCKED', 'EXPIRED');

@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/migration/changeset/create-users.yaml
+  - include:
+      file: db/migration/changeset/create-card.yaml
+  - include:
+      file: db/migration/changeset/create-card-block-request.yaml

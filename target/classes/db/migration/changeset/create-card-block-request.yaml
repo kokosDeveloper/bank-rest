@@ -1,0 +1,67 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-card-block-request
+      author: Ivan
+      changes:
+        - createTable:
+            tableName: card_block_request
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: reason
+                  type: varchar
+                  constraints:
+                    nullable: false
+              - column:
+                  name: processed
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: approved
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: requested_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: processed_at
+                  type: timestamp
+              - column:
+                 name: last_modified_by
+                 type: bigint
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: card_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: card_block_request
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id
+            constraintName: fk_request_users
+
+        - addForeignKeyConstraint:
+            baseTableName: card_block_request
+            baseColumnNames: card_id
+            referencedTableName: card
+            referencedColumnNames: id
+            constraintName: fk_request_card
+
+
